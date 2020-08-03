@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const path = require('path');
 const helmet = require('helmet')
 const session = require('express-session');
-const nocache = require('nocache');
 
 const saucesRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
@@ -34,11 +33,11 @@ app.use((req, res, next) => {
 
 const MongoDBStore = require('connect-mongodb-session')(session);
 const store = new MongoDBStore({
-  uri: process.env.DB_CONNECT,
-  collection: 'mySessions'
+  uri: process.env.DB_CONNECT, // une chaîne de connexion MongoDB
+  collection: 'mySessions' //la collection MongoDB pour stocker les sessions
 });
  
-// Catch errors
+//  Attraper les erreurs
 store.on('error', function(error) {
   console.log(error);
 });
@@ -57,13 +56,12 @@ app.get('/', function(req, res) {
   res.send('Hello ' + JSON.stringify(req.session));
 });
 
+app.use(helmet());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(helmet());
-app.use(nocache());
-app.use('/images', express.static(path.join(__dirname, 'images')));
 
-app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', userRoutes);
+app.use('/api/sauces', saucesRoutes);
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;
