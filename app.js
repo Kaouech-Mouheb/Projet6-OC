@@ -1,14 +1,18 @@
 const express = require('express');
+//Analyser les corps de requête entrants 
 const bodyParser = require('body-parser');
+//Mongoose est un outil de modélisation d'objets MongoDB
 const mongoose = require('mongoose');
+//module path
 const path = require('path');
+//Helmet permet de sécuriser vos applications Express en définissant divers en-têtes HTTP
 const helmet = require('helmet')
 const session = require('express-session');
 
 const saucesRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
 
-
+//permet de charger les variables d'environnement
 require('dotenv').config();
 
 mongoose.connect(process.env.DB_CONNECT,
@@ -20,14 +24,12 @@ mongoose.connect(process.env.DB_CONNECT,
 
 const app = express();
 app.use((req, res, next) => {
-  //on indique que les ressources peuvent être partagées depuis n'importe quelle origine
+  //on permet d'accéder à notre API depuis n'importe quelle origine ( '*'
   res.setHeader('Access-Control-Allow-Origin', '*');
-  //on indique les entêtes qui seront utilisées après la pré-vérification cross-origin (vérifie sur le protocole CORS est autorisé)
+  //permet d'ajouter les headers mentionnés aux requêtes envoyées vers notre API (Origin , X-Requested-With , etc.) ;
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-  //on indique les méthodes autorisées pour les requêtes HTTP
+  //permet d'envoyer des requêtes avec les méthodes mentionnées
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-  //n'autorise que ce serveur à fournir des scripts pour la page visitée
-  res.setHeader('Content-Security-Policy', "default-src 'self'");
   next();
 });
 

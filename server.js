@@ -18,7 +18,7 @@ const normalizePort = (val) => {
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-// on traire les différents types d'erreur
+// on gére les différents types d'erreur
 const errorHandler = (error) => {
   if (error.syscall !== 'listen') {
     throw error;
@@ -38,7 +38,7 @@ const errorHandler = (error) => {
       throw error;
   }
 };
-//Créer un serveur avec express
+//Créer un serveur la méthode createServer
 const server = http.createServer(app); 
 
 //Lance le serveur et affiche sur quel port se connecter ou gère les erreurs s'il y en a
