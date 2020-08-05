@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 //module path
 const path = require('path');
 //Helmet permet de sécuriser vos applications Express en définissant divers en-têtes HTTP
-const helmet = require('helmet')
+const helmet = require('helmet');
+
 const session = require('express-session');
 
 const saucesRoutes = require('./routes/sauces');
@@ -32,7 +33,7 @@ app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   next();
 });
-
+//Stockage de session basé sur MongoDB pour connect et Express
 const MongoDBStore = require('connect-mongodb-session')(session);
 const store = new MongoDBStore({
   uri: process.env.DB_CONNECT, // une chaîne de connexion MongoDB
@@ -44,7 +45,7 @@ store.on('error', function(error) {
   console.log(error);
 });
  
-app.use(require('express-session')({
+app.use(session({
   secret: process.env.COOKIE_SECRET,
   cookie: {
     maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
@@ -67,3 +68,4 @@ app.use('/api/sauces', saucesRoutes);
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = app;
+
