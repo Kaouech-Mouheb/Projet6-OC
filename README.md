@@ -1,6 +1,14 @@
 # Projet6-OC
 <h1>Construisez une API sécurisée pour une application d'avis gastronomiques</h1>
 <p>Ce projet est réalisé dans le cadre de formation développeur web chez openclassrooms</p>
+<ul>
+ <li>
+  Cloner le repository et suivez les instructions ci-après pour exécuté ce projet en local.
+ <li/>
+</ul>
+<p>
+ Pour des raisons pédégalogique j'ai laissé le fichier .env sur mon compte Github, merci de bien vouloir remplacer les valeurs des variables d'environnements par les vôtres .
+</p>
  
 <h2>Contexte du projet</h2>
 <p>So Pekocko est une entreprise familiale de 10 salariés. Son activité principale est la création de sauces piquantes dont la composition est tenue secrète. Forte de son succès, l’entreprise souhaite se développer et créer une application web, dans laquelle les utilisateurs pourront ajouter leurs sauces préférées et liker ou disliker les sauces proposées par les autres.
