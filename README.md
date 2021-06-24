@@ -5,7 +5,7 @@
  <li>
   Cloner le repository et suivez les instructions ci-après pour exécuté ce projet en local.
  <li/>
-</ul>
+<ul/>
 <p>
  Pour des raisons pédégalogique j'ai laissé le fichier .env sur mon compte Github, merci de bien vouloir remplacer les valeurs des variables d'environnements par les vôtres .
 </p>
