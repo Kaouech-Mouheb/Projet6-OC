@@ -1,4 +1,4 @@
-# Projet n°6 OpenClassrooms
+# Projet n°6 OpenClassrooms #
 <p>Construisez une API sécurisée pour une application d'avis gastronomiques</p>
 <p>Ce projet est réalisé dans le cadre de formation développeur web chez openclassrooms</p>
 <ul>
