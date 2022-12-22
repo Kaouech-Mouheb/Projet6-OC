@@ -21,7 +21,7 @@
     "fs": "0.0.1-security",
     "genid": "^0.1.0",
     "helmet": "^3.22.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.9.16",
     "mongoose-sanitizer-plugin": "^1.1.0",
     "mongoose-type-email": "^1.0.12",
